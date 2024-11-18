@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpkyfrhmcqtbx"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_otsya"]
+[ext_resource type="Texture2D" uid="uid://m3tq6yub6bre" path="res://Assets/Buildings/Screenshot 2024-11-13 102950.png" id="2_ehju1"]
+[ext_resource type="Texture2D" uid="uid://drucmtocmquqo" path="res://Assets/Buildings/Screenshot 2024-11-13 104346.png" id="2_r75p5"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_otsya")
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_r75p5")
+
+[node name="OptionsMenu" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 459.0
+offset_right = 190.0
+offset_bottom = 647.097
+texture = ExtResource("2_ehju1")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 494.0
+offset_right = 189.0
+offset_bottom = 647.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.43
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
